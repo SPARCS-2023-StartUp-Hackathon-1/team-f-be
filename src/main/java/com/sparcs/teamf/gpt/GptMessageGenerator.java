@@ -1,26 +1,23 @@
 package com.sparcs.teamf.gpt;
 
-import static com.sparcs.teamf.gpt.constant.GptMessageConstants.FOR_ANSWER_FORMAT;
-import static com.sparcs.teamf.gpt.constant.GptMessageConstants.FOR_BASIC_QUESTION_FORMAT;
-import static com.sparcs.teamf.gpt.constant.GptMessageConstants.FOR_TAIL_QUESTION_FORMAT;
-
-import com.sparcs.teamf.domain.midcategory.MidCategory;
-import com.sparcs.teamf.domain.question.Question;
-import org.springframework.stereotype.Component;
-
-@Component
 public class GptMessageGenerator {
 
-    public String generateForBasicQuestion(MidCategory midCategory) {
-        return String.format(FOR_BASIC_QUESTION_FORMAT, midCategory.getName());
+    private static final String FOR_BASIC_QUESTION_FORMAT = "%s 분야 내에서 면접 질문 1개를 알려 주세요.";
+    private static final String FOR_TAIL_QUESTION_FORMAT = "%s 분야 내에서 %s 와 관련한 면접 질문 1개를 알려 주세요.";
+    private static final String FOR_ANSWER_FORMAT = "%s 에 대한 답을 알려 주세요.";
+    private GptMessageGenerator() {
     }
 
-    public String generateForTailQuestion(Question question) {
-        return String.format(FOR_TAIL_QUESTION_FORMAT, question.getMidCategory().getName(), question.getQuestion());
+    public static String generateForBasicQuestion(String midCategoryName) {
+        return String.format(FOR_BASIC_QUESTION_FORMAT, midCategoryName);
     }
 
-    public String generateForAnswer(Question question) {
-        return String.format(FOR_ANSWER_FORMAT, question.getQuestion());
+    public static String generateForTailQuestion(String midCategoryName, String question) {
+        return String.format(FOR_TAIL_QUESTION_FORMAT, midCategoryName, question);
+    }
+
+    public static String generateForAnswer(String question) {
+        return String.format(FOR_ANSWER_FORMAT, question);
     }
 }
 
