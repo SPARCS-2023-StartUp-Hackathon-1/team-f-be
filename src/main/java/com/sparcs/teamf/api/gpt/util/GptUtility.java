@@ -1,4 +1,4 @@
-package com.sparcs.teamf.api.gpt.service;
+package com.sparcs.teamf.api.gpt.util;
 
 import com.sparcs.teamf.domain.gpt.Gpt;
 import com.sparcs.teamf.domain.midcategory.MidCategory;
