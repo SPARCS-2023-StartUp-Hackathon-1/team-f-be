@@ -6,7 +6,9 @@ import static com.sparcs.teamf.gpt.constant.GptMessageConstants.FOR_TAIL_QUESTIO
 
 import com.sparcs.teamf.domain.midcategory.MidCategory;
 import com.sparcs.teamf.domain.question.Question;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GptMessageGenerator {
 
     public String generateForBasicQuestion(MidCategory midCategory) {
