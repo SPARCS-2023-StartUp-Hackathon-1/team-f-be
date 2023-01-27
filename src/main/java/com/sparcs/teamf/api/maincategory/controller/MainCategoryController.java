@@ -1,7 +1,8 @@
 package com.sparcs.teamf.api.maincategory.controller;
 
-import com.sparcs.teamf.api.maincategory.dto.MainCategoryDto;
+import com.sparcs.teamf.api.maincategory.dto.MainCategoriesResponse;
 import com.sparcs.teamf.api.maincategory.service.MainCategoryService;
+import com.sparcs.teamf.domain.maincategory.MainCategory;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,7 @@ public class MainCategoryController {
     private final MainCategoryService mainCategoryService;
 
     @GetMapping
-    public List<MainCategoryDto> getMainCategory() {
-        return mainCategoryService.getMainCategory().stream()
-                .map(mainCategory -> new MainCategoryDto(mainCategory.getId(), mainCategory.getName()))
-                .toList();
+    public MainCategoriesResponse getMainCategories() {
+        return mainCategoryService.getMainCategories();
     }
 }
