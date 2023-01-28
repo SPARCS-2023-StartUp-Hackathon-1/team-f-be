@@ -18,11 +18,12 @@ public class Repeat {
             Supplier<HttpException> exceptionSupplier) throws InterruptedException {
 
         for (int attempt = 0; attempt < DEFAULT_MAX_ATTEMPTS; attempt++) {
-            Optional<T> result;
             try {
+                Optional<T> result;
                 result = supplier.get();
                 if (needToRepeat.test(result)) {
                     Thread.sleep(1000);
+                    continue;
                 }
                 return result;
             } catch (RuntimeException ignored) {
