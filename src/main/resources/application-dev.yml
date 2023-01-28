@@ -1,8 +1,5 @@
 server:
   port: 443
-  ports:
-    https: 443
-    http: 8080
   servlet:
     context-path: /api
 
