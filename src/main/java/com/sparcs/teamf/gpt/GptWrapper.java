@@ -52,13 +52,13 @@ public class GptWrapper implements Gpt {
     @Transactional
     public void loadBasicQuestion(Question question) {
         String answer = generateAnswer(question);
-        String nextQuestion = generateNextQuestion(question, answer);
-        Question generated = new Question(nextQuestion, question.getMidCategory());
+        String tailQuestion = generateNextQuestion(question, answer);
+        Question generatedTailQuestion = questionRepository.save(new Question(tailQuestion, question.getMidCategory()));
         Question alreadyExistQuestion = questionRepository.findById(question.getId())
                 .orElseThrow(() -> new IllegalStateException("호출시 생성해줌"));
         alreadyExistQuestion.updateAnswer(answer);
-        generated.updateParentQuestionId(alreadyExistQuestion.getId());
-        questionRepository.save(generated);
+
+        generatedTailQuestion.updateParentQuestionId(alreadyExistQuestion.getId());
     }
 
     private String generateAnswer(Question question) {
