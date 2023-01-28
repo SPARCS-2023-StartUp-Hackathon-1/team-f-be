@@ -2,7 +2,9 @@ package com.sparcs.teamf.api.answer.service;
 
 import com.sparcs.teamf.api.answer.dto.AnswerResponse;
 import com.sparcs.teamf.api.answer.exception.AnswerNotFoundException;
+import com.sparcs.teamf.api.answer.exception.QuestionNotFoundException;
 import com.sparcs.teamf.common.util.Repeat;
+import com.sparcs.teamf.domain.gpt.Gpt;
 import com.sparcs.teamf.domain.question.Question;
 import com.sparcs.teamf.domain.question.QuestionRepository;
 import java.util.Optional;
@@ -14,9 +16,16 @@ import org.springframework.stereotype.Service;
 public class AnswerService {
 
     private final QuestionRepository questionRepository;
+    private final Gpt gpt;
 
     public AnswerResponse getAnswer(long questionId) throws InterruptedException {
-        Optional<Question> question = Repeat.repeat(() -> getAnswerFromRepositoryById(questionId),
+        Optional<Question> target = findQuestionById(questionId);
+        if (target.isEmpty()) {
+            throw new QuestionNotFoundException();
+        }
+        gpt.loadNextQuestion(target.get());
+
+        Optional<Question> question = Repeat.repeat(() -> findQuestionById(questionId),
                 this::needToRepeat,
                 AnswerNotFoundException::new);
         if (question.isEmpty()) {
@@ -26,7 +35,7 @@ public class AnswerService {
         return new AnswerResponse(questionId, question.get().getAnswer());
     }
 
-    private Optional<Question> getAnswerFromRepositoryById(long questionId) {
+    private Optional<Question> findQuestionById(long questionId) {
         return questionRepository.findById(questionId);
     }
 
