@@ -16,7 +16,8 @@ public class TailQuestionController {
     private final TailQuestionService tailQuestionService;
 
     @GetMapping("/{questionId}/tail")
-    public TailQuestionResponse getTailQuestion(@PathVariable("questionId") long questionId) {
+    public TailQuestionResponse getTailQuestion(@PathVariable("questionId") long questionId)
+            throws InterruptedException {
         return tailQuestionService.getTailQuestion(questionId);
     }
 }
