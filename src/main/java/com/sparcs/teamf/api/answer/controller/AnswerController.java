@@ -1,5 +1,6 @@
 package com.sparcs.teamf.api.answer.controller;
 
+import com.sparcs.teamf.api.answer.dto.AnswerResponse;
 import com.sparcs.teamf.api.answer.service.AnswerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,7 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @GetMapping("{questionId}/answer")
-    public String getAnswers(@PathVariable("questionId") String questionId) throws InterruptedException {
-
+    public AnswerResponse getAnswers(@PathVariable("questionId") String questionId) throws InterruptedException {
         return answerService.getAnswer(Long.parseLong(questionId));
     }
 }
