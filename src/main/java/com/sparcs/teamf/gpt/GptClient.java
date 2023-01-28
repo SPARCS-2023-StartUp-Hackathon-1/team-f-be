@@ -23,6 +23,6 @@ class GptClient {
 
         return openAiService.createCompletion(completionRequest)
                 .getChoices()
-                .get(0).getText();
+                .get(0).getText().replaceAll("^[\\s\n.]+", "");
     }
 }
