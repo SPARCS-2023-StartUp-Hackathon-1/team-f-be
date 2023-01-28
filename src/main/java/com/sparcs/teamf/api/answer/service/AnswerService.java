@@ -33,9 +33,6 @@ public class AnswerService {
         if (question.isEmpty()) {
             return true;
         }
-        if (question.get().getAnswer() == null) {
-            return true;
-        }
-        return false;
+        return question.get().getAnswer() == null;
     }
 }
