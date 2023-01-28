@@ -15,7 +15,7 @@ class GptClient {
     public String call(String question) {
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("text-davinci-003")
-                .maxTokens(500)
+                .maxTokens(2000)
                 .prompt(question)
                 .temperature(0.0)
                 .echo(false)

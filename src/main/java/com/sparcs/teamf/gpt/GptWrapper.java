@@ -4,7 +4,6 @@ import com.sparcs.teamf.domain.gpt.Gpt;
 import com.sparcs.teamf.domain.question.Question;
 import com.sparcs.teamf.domain.question.QuestionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class GptWrapper implements Gpt {
 
     private static final String ANSWER_FORMAT = "%s 카테고리 안에 %s에 대한 질문 %s의 답을 알려 주세요.";
-    private static final String NEXT_QUESTION_FORMAT = "%s 카테고리 안에 %s에 대한 질문 %s에 %s 라는 답을 했을 때 생길 수 있는 다음 질문을 하나 알려주세요";
+    private static final String NEXT_QUESTION_FORMAT =
+            "%s 카테고리 안에 %s 에 대한 질문 %s 에 %s 라는 답을 했을 때 생길 수 있는 다음 질문을 하나 알려주세요";
 
     private final GptPool gptPool;
     private final QuestionRepository questionRepository;
@@ -24,7 +24,6 @@ public class GptWrapper implements Gpt {
     }
 
     @Override
-    @Async
     public void loadNextQuestion(Question question) {
         String answer = generateAnswer(question);
         String nextQuestion = generateNextQuestion(question, answer);
@@ -49,10 +48,11 @@ public class GptWrapper implements Gpt {
         String mainCategoryName = question.getMidCategory().getMainCategory().getName();
         String midCategoryName = question.getMidCategory().getName();
 
-        return gptPool.ask(generatePromptForNextQuestion(mainCategoryName,
+        String nextQuestionPrompt = generatePromptForNextQuestion(mainCategoryName,
                 midCategoryName,
                 question.getQuestion(),
-                answer));
+                answer);
+        return gptPool.ask(nextQuestionPrompt);
     }
 
     private String generatePromptForNextQuestion(String mainCategory, String midCategory, String question,
@@ -60,6 +60,7 @@ public class GptWrapper implements Gpt {
         return String.format(NEXT_QUESTION_FORMAT,
                 mainCategory,
                 midCategory,
-                question, answer);
+                question,
+                answer);
     }
 }
