@@ -14,7 +14,7 @@ public class AnswerController {
 
     private final AnswerService answerService;
 
-    @GetMapping("{questionId}/answers")
+    @GetMapping("{questionId}/answer")
     public String getAnswers(@PathVariable("questionId") String questionId) throws InterruptedException {
 
         return answerService.getAnswer(Long.parseLong(questionId));
