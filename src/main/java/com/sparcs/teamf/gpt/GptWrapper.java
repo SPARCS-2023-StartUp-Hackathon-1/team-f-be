@@ -50,7 +50,14 @@ public class GptWrapper implements Gpt {
     @Override
     @Async
     @Transactional
-    public void loadBasicQuestion(Question question) {
+    public Question loadBaseQuestions(Question question) {
+        Question tailQuestion = loadAnswerAndTailQuestion(question);
+        Question tailOfTailQuestion = loadAnswerAndTailQuestion(tailQuestion);
+        Question tailOfTailOfTailQuestion = loadAnswerAndTailQuestion(tailOfTailQuestion);
+        return loadAnswerAndTailQuestion(tailOfTailOfTailQuestion);
+    }
+
+    private Question loadAnswerAndTailQuestion(Question question) {
         String answer = generateAnswer(question);
         String tailQuestion = generateNextQuestion(question, answer);
         Question generatedTailQuestion = questionRepository.save(new Question(tailQuestion, question.getMidCategory()));
@@ -59,6 +66,7 @@ public class GptWrapper implements Gpt {
         alreadyExistQuestion.updateAnswer(answer);
 
         generatedTailQuestion.updateParentQuestionId(alreadyExistQuestion.getId());
+        return generatedTailQuestion;
     }
 
     private String generateAnswer(Question question) {
