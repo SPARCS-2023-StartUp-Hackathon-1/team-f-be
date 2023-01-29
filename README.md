@@ -98,7 +98,7 @@
 
 >
 
-- CI/CD
+- CI
 
   > [Github Actions](https://github.com/SPARCS-2023-StartUp-Hackathon-1/team-f-be/actions)
 
