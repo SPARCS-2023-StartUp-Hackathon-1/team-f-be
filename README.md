@@ -100,21 +100,14 @@
 
 - CI/CD
 
-  > [Github Actions](https://github.com/depromeet/fairer-be/actions)
+  > [Github Actions](https://github.com/SPARCS-2023-StartUp-Hackathon-1/team-f-be/actions)
 
 >
 
 - 문서화
 
-  > [Swagger](http://ec2-13-125-232-180.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/index.html)
-
->
-
-- ETC
-
-  > JWT, Oauth2(google)
-
-  > Spring Batch
+  > [Swagger](https://qtail.hackathon.sparcs.org/api/swagger-ui/index.html)
+  
 
 >
 
