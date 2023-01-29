@@ -1,3 +1,5 @@
+# team-f-be
+
 # 🧹 team-f-be
 
 <img src="https://user-images.githubusercontent.com/77181984/175760346-a164f36f-3c12-41ab-9a06-2f86885baf9a.png" width="650"/><br/>
@@ -12,11 +14,63 @@
 
 <br/>
 
-## 👨‍👩‍👧‍👧 BackEnd Developer
+## 👨‍👩‍👧‍👧 Owner
 
-|     <img src="https://user-images.githubusercontent.com/77181984/175761511-863c24d7-dae1-4539-9dad-d82b83a3c907.png" width="150"/>     |    <img src="https://user-images.githubusercontent.com/77181984/175761513-22e7b9f1-26b6-43c2-b117-359db6157e06.jpeg" width="150"/>    |     <img src="https://user-images.githubusercontent.com/77181984/175761514-2842fd4b-8a95-4f40-ad01-eb075e32fb85.png" width="150"/>      | <img src="https://user-images.githubusercontent.com/77181984/175761515-5092022d-d4f1-4db4-8fcc-18f9479fda93.jpeg" width="150"/>  |
-| :-----------------------------------: | :-----------------: | :----------------: |:----------------: |
-|   [김승윤](https://github.com/dskym) |   [신동빈](https://github.com/SDB016)       |   [김다슬](https://github.com/daseulll)  | [곽다은](https://github.com/daeunkwak) |
+<table>
+<tr>
+  <td align=center>
+  <a href="https://github.com/chaaerim">
+  <img src="https://user-images.githubusercontent.com/62706048/215300686-545905be-911e-42ff-af2d-c084ac9a311d.png" width="120px"  />
+  <br/>
+  Frontend💻
+  <br/>
+  김채림
+  </a>
+  </td>
+  
+  <td align=center>
+  <a href="https://github.com/L2HYUNN">
+  <img src="https://user-images.githubusercontent.com/62706048/215300666-be5a23eb-6361-478a-ad12-290bc1219f52.png" width="120px"  />
+  <br/>
+  Frontend💻
+  <br/>
+  이동현
+  </a>
+  </td>
+  
+  
+  <td align=center>
+  <a href="https://github.com/sa46lll">
+  <img src="https://user-images.githubusercontent.com/62706048/212285826-1c27e691-9e85-4911-af73-83c3541c9617.png" width="120px"  />
+  <br/>
+  Backend💻
+  <br/>
+  서명현
+  </a>
+  </td>
+  
+  <td align=center>
+  <a href="https://github.com/be-student">
+  <img src="https://user-images.githubusercontent.com/62706048/212285826-1c27e691-9e85-4911-af73-83c3541c9617.png" width="120px"  />
+  <br/>
+  Backend💻
+  <br/>
+  송은우
+  </a>
+  </td>
+  
+  <td align=center>
+  <a href="https://github.com/L2HYUNN">
+  <img src="https://user-images.githubusercontent.com/62706048/215300737-40fb893b-ae16-4108-a918-d9cc77dec872.png" width="120px"  />
+  <br/>
+  Designer💻
+  <br/>
+  진승희
+  </a>
+  </td>
+</tr>
+</tr>
+</table>
 
 <br/>
 
@@ -24,7 +78,7 @@
 
 - Skills
 
-  > Spring Boot, Data JPA(+Querydsl)
+  > Spring Boot, JPA, Github Actions, S3
 
 >
 
@@ -54,7 +108,15 @@
 
 - 문서화
 
-  > [Swagger](http://ec2-13-125-232-180.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/index.html)](https://qtail.hackathon.sparcs.org/api/swagger-ui/index.html)
+  > [Swagger](http://ec2-13-125-232-180.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/index.html)
+
+>
+
+- ETC
+
+  > JWT, Oauth2(google)
+
+  > Spring Batch
 
 >
 
@@ -69,22 +131,20 @@
 ## 🗂 Directory
 
 ```
-📂 teamf
-    📂 api  
-     ├── 📂 error
-     |	 ├── 📂 dto
-     |	 ├── 📂 exception
-     |   └── 📂 handler
-     ├── 📂 answer
-     ├── 📂 question
-     ├── 📂 midCategory
-     └── 📂 mainCategory
+📂 fairer
+    📂 api
     📂 domain
-     ├── 📂 gpt
-     ├── 📂 question
-     ├── 📂 midcategory
-     └── 📂 maincategory
-    📂 gpt
+    📂 dto
+    📂 global
+     ├── 📂 config
+     ├── 📂 exception
+     |	 ├── 📂 dto
+     |   └── 📂 handler
+     ├── 📂 resolver
+     └── 📂 util
+    📂 repository
+    📂 service
+    📂 vo
 	- Application.java
 ```
 
@@ -92,7 +152,7 @@
 
 ## 📝ERD
 
-![image](https://user-images.githubusercontent.com/80899085/215300237-4173bbdb-2d9d-456b-af83-6cf29f495543.png)
+<img src="https://user-images.githubusercontent.com/77181984/176247477-e1c0277b-e4d1-4049-817c-16e08668976b.PNG" width="550"/>
 
 <br/>
 
@@ -107,8 +167,8 @@ $ ./gradlew build
 2. 빌드된 파일 (*.jar) 실행
 
 ```
-$ teamf-0.0.1-SNAPSHOT.jar
-$ java -jar teamf-0.0.1-SNAPSHOT.jar
+$ fairer-0.0.1-SNAPSHOT.jar
+$ java -jar fairer-0.0.1-SNAPSHOT.jar
 ```
 
 <br/>
@@ -123,6 +183,10 @@ $ java -jar teamf-0.0.1-SNAPSHOT.jar
 
 `docs` : 문서화에 대한 커밋
 
-`chore` : 기타 사항에 대한 커밋
 
 <br/>
+
+## 📞 Contact
+
+[![Facebook](https://img.shields.io/badge/facebook-1877f2?style=flat-square&logo=facebook&logoColor=white&link=https://www.facebook.com/fairer.official/)](https://www.facebook.com/fairer.official)
+[![instagram](https://img.shields.io/badge/instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/fairer.official/)](https://www.instagram.com/fairer.official/)
