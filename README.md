@@ -1,5 +1,3 @@
-# team-f-be
-
 # 🧹 team-f-be
 
 <img src="https://user-images.githubusercontent.com/77181984/175760346-a164f36f-3c12-41ab-9a06-2f86885baf9a.png" width="650"/><br/>
