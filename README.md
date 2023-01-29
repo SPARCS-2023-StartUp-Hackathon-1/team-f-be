@@ -125,5 +125,6 @@ $ java -jar teamf-0.0.1-SNAPSHOT.jar
 
 `docs` : 문서화에 대한 커밋
 
-`chore` : 기타 작업에 대한 커밋
+`chore` : 기타 사항에 대한 커밋
+
 <br/>
