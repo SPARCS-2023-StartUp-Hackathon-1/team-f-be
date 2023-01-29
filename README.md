@@ -42,9 +42,21 @@
 
 >
 
+- 운영 환경
+
+  > Elastic Beanstalk
+
+>
+
+- CI/CD
+
+  > [Github Actions](https://github.com/depromeet/fairer-be/actions)
+
+>
+
 - 문서화
 
-  > [Swagger](http://ec2-13-125-232-180.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/index.html)
+  > [Swagger](http://ec2-13-125-232-180.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/index.html)](https://qtail.hackathon.sparcs.org/api/swagger-ui/index.html)
 
 >
 
@@ -59,20 +71,22 @@
 ## 🗂 Directory
 
 ```
-📂 fairer
-    📂 api
-    📂 domain
-    📂 dto
-    📂 global
-     ├── 📂 config
-     ├── 📂 exception
+📂 teamf
+    📂 api  
+     ├── 📂 error
      |	 ├── 📂 dto
+     |	 ├── 📂 exception
      |   └── 📂 handler
-     ├── 📂 resolver
-     └── 📂 util
-    📂 repository
-    📂 service
-    📂 vo
+     ├── 📂 answer
+     ├── 📂 question
+     ├── 📂 midCategory
+     └── 📂 mainCategory
+    📂 domain
+     ├── 📂 gpt
+     ├── 📂 question
+     ├── 📂 midcategory
+     └── 📂 maincategory
+    📂 gpt
 	- Application.java
 ```
 
@@ -80,7 +94,7 @@
 
 ## 📝ERD
 
-![image](https://user-images.githubusercontent.com/80899085/215300640-3bd09230-2c9d-4504-8f16-15db25d86607.png)
+![image](https://user-images.githubusercontent.com/80899085/215300237-4173bbdb-2d9d-456b-af83-6cf29f495543.png)
 
 <br/>
 
